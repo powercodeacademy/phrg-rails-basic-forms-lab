@@ -1,22 +1,22 @@
-describe App do
+require 'rails_helper'
 
+RSpec.describe 'Rails Forms Lab', type: :feature do
   describe 'GET /' do
-    
     it 'sends a 200 status code' do
-      get '/'
-      expect(last_response.status).to eq(200)
+      visit '/'
+      expect(page.status_code).to eq(200)
     end
 
-    it 'renders welcome' do 
+    it 'renders welcome' do
       visit '/'
       expect(page).to have_link("Click Here To List A Puppy")
     end
   end
 
-  describe 'GET /NEW' do 
+  describe 'GET /new' do
     it 'sends a 200 status code' do
-      get '/new'
-      expect(last_response.status).to eq(200)
+      visit '/new'
+      expect(page.status_code).to eq(200)
     end
 
     it 'renders the form' do
@@ -28,8 +28,8 @@ describe App do
     end
   end
 
-  describe 'POST /' do
-    it "displays the puppy" do 
+  describe 'POST /puppy' do
+    it "displays the puppy" do
       visit '/new'
 
       fill_in(:name, :with => "Butch")
@@ -41,6 +41,4 @@ describe App do
       expect(page).to have_text("Puppy Age:\n6 months")
     end
   end
-
-  
 end
