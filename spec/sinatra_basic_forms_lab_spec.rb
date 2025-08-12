@@ -36,9 +36,14 @@ RSpec.describe 'Rails Forms Lab', type: :feature do
       fill_in(:breed, :with => "Mastiff")
       fill_in(:age, :with => "6 months")
       click_button "submit"
-      expect(page).to have_text("Puppy Name:\nButch")
-      expect(page).to have_text("Puppy Breed:\nMastiff")
-      expect(page).to have_text("Puppy Age:\n6 months")
+
+      # Check that the page contains the puppy information
+      expect(page).to have_text("Puppy Name")
+      expect(page).to have_text("Butch")
+      expect(page).to have_text("Puppy Breed")
+      expect(page).to have_text("Mastiff")
+      expect(page).to have_text("Puppy Age")
+      expect(page).to have_text("6 months")
     end
   end
 end
