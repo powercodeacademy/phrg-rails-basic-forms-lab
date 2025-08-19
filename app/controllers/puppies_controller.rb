@@ -1,25 +1,23 @@
 class PuppiesController < ApplicationController
   def index
-    @puppies = Puppy.all
+    @puppies = []
   end
 
   def show
-    @puppy = Puppy.find(params[:id])
   end
 
   def new
-    @puppy = Puppy.new
+    @puppy = Puppy.new("", "", "")
   end
 
   def create
     @puppy = Puppy.new(puppy_params)
-    @puppy.save
-    redirect_to @puppy
+    render :create
   end
 
   private
 
   def puppy_params
-    params.require(:puppy).permit(:name, :breed, :age)
+    params.permit(:name, :breed, :age)
   end
 end

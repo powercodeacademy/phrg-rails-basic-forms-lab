@@ -1,11 +1,12 @@
-<!--
-  TODO: Create your form here!
+<%= form_with url: "/puppy", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
 
-  Your form should:
-  - Use Rails form helpers (form_with)
-  - Submit to '/puppy' with POST method
-  - Have fields for: name, breed, age
-  - Have a submit button with "submit" text and type="submit"
+  <%= form.label :breed %>
+  <%= form.text_field :breed %>
 
-  Hint: Use form_with helper with url parameter
--->
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+
+  <%= form.submit "submit" %>
+<% end %>
