@@ -11,13 +11,7 @@ class PuppiesController < ApplicationController
   end
 
   def create
-    @puppy = Puppy.new(puppy_params)
+    @puppy = Puppy.new(params[:name], params[:breed], params[:age])
     render :create
-  end
-
-  private
-
-  def puppy_params
-    params.permit(:name, :breed, :age)
   end
 end
