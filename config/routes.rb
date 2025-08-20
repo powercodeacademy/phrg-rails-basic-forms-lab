@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
+  resources :puppies, only: %i[show new create]
   get '/', to: 'puppies#index'
-  get '/puppies/new', to: 'puppies#new'
-  post '/puppies', to: 'puppies#create'
-  get '/puppies/:id', to: 'puppies#show'
 end
