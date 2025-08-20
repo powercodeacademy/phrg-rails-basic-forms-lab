@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   # - A GET route to '/' that goes to the puppies controller index action
   # - A GET route to '/new' that goes to the puppies controller new action
   # - A POST route to '/puppy' that goes to the puppies controller create action
+  root 'puppies#index'
+  get '/new', to: 'puppies#new'
+  post '/new', to: 'puppies#create'
 end
