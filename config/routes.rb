@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   # - A POST route to '/puppy' that goes to the puppies controller create action
   root 'puppies#index'
   get '/new', to: 'puppies#new'
-  post '/puppy', to: 'puppies#create'
+  post '/new', to: 'puppies#create'
 end
