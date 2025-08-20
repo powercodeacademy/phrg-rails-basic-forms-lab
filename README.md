@@ -12,12 +12,14 @@ available for adoption. Good thing you love puppies _and_ coding!
 2. Implement both POST and GET requests following RESTful patterns
 3. Connect a controller action with both a view and a model
 4. Practice using Rails form helpers with proper nested naming conventions
+5. Display a list of existing puppies on the homepage
 
 ## Instructions
 
 The focus of this lab is to build a way for a user to go to a homepage,
 follow a link to a form where they can enter a puppy's information, and, upon
-submission, view the puppy's information on a show page.
+submission, view the puppy's information on a show page. The homepage should also
+display a list of all existing puppies.
 
 1. Run `bundle install`
 2. Run `bin/rails server`
@@ -33,7 +35,7 @@ submission, view the puppy's information on a show page.
 
 4. **Create controller actions** in `app/controllers/puppies_controller.rb`:
 
-   - Add an `index` action to display the homepage
+   - Add an `index` action to display the homepage with a list of all puppies
    - Add a `new` action to display the form
    - Add a `create` action to process the form submission and redirect to show
    - Add a `show` action to display the puppy information
@@ -41,7 +43,10 @@ submission, view the puppy's information on a show page.
 5. **Build the homepage** in `app/views/puppies/index.html.erb`. This page should
    welcome you to the Puppy Adoption Site and include a link to the new puppy form.
    Use Rails `link_to` helper with the `new_puppy_path` route helper to create a link
-   with the text "Click Here To List A Puppy".
+   with the text "Click Here To List A Puppy". The page should also display a list
+   of all existing puppies with their name, breed, and age, along with links to view
+   each puppy's details. If no puppies exist yet, display a message encouraging users
+   to add the first one.
 
 6. **Create the form** in `app/views/puppies/new.html.erb`. You can create this form
    using Rails form helpers. Use Rails `form_with` helper with a model parameter to create your form.
@@ -61,6 +66,7 @@ submission, view the puppy's information on a show page.
 - After creating a puppy, redirect to the show page, don't render a create view
 - Follow RESTful conventions throughout
 - Form fields should use nested naming (e.g., `puppy[name]`, `puppy[breed]`, `puppy[age]`)
+- The index page should display all existing puppies with links to their show pages
 
 ## Testing
 
@@ -73,6 +79,7 @@ The tests will check that:
 - Your form submits to the correct endpoint
 - Your show page displays all the submitted data correctly
 - Your controller follows proper redirect patterns
+- Your index page displays existing puppies with proper information and links
 
 ## Resources
 

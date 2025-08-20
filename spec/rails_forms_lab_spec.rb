@@ -11,6 +11,22 @@ RSpec.describe "Rails Forms Lab", type: :feature do
       visit "/puppies"
       expect(page).to have_link("Click Here To List A Puppy")
     end
+
+    it "displays message when no puppies exist" do
+      visit "/puppies"
+      expect(page).to have_text("No puppies available yet. Be the first to add one!")
+    end
+
+    it "displays existing puppies with links" do
+      # Create a test puppy
+      puppy = Puppy.create!(name: "Buddy", breed: "Golden Retriever", age: "2 years")
+
+      visit "/puppies"
+
+      expect(page).to have_text("Available Puppies")
+      expect(page).to have_text("Buddy - Golden Retriever (2 years)")
+      expect(page).to have_link("View Details", href: puppy_path(puppy))
+    end
   end
 
   describe "GET /puppies/new" do
