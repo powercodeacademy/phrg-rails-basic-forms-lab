@@ -26,10 +26,10 @@ submission, view the puppy's information on a show page.
 
    - Use RESTful routing conventions with `resources :puppies`
    - This will create all the standard RESTful routes including:
-     - GET `/` → `puppies#index` (homepage)
-     - GET `/puppies/new` → `puppies#new` (form page)
-     - POST `/puppies` → `puppies#create` (process form)
-     - GET `/puppies/:id` → `puppies#show` (display puppy)
+     - GET `/puppies` → `puppies#index`
+     - GET `/puppies/new` → `puppies#new`
+     - POST `/puppies` → `puppies#create`
+     - GET `/puppies/:id` → `puppies#show`
 
 4. **Create controller actions** in `app/controllers/puppies_controller.rb`:
 

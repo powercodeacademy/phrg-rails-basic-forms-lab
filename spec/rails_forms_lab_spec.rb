@@ -1,14 +1,14 @@
 require "rails_helper"
 
 RSpec.describe "Rails Forms Lab", type: :feature do
-  describe "GET /" do
+  describe "GET /puppies" do
     it "sends a 200 status code" do
-      visit "/"
+      visit "/puppies"
       expect(page.status_code).to eq(200)
     end
 
     it "renders welcome" do
-      visit "/"
+      visit "/puppies"
       expect(page).to have_link("Click Here To List A Puppy")
     end
   end
@@ -37,7 +37,6 @@ RSpec.describe "Rails Forms Lab", type: :feature do
       fill_in("puppy[age]", with: "6 months")
       click_button "submit"
 
-      # Check that the page contains the puppy information
       expect(page).to have_text("Puppy Name")
       expect(page).to have_text("Butch")
       expect(page).to have_text("Puppy Breed")
