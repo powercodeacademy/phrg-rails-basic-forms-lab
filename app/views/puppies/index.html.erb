@@ -1,10 +1,13 @@
-<!--
-  TODO: Create your homepage here!
+<% if @puppies.empty? %>
+  <p>No puppies available yet. Be the first to add one!<p>
+<% else %>
+  <h2>Available Puppies</h2>
+  <% @puppies.each do |puppy| %>
+    <div>
+      <%= "#{puppy.name} - #{puppy.breed} (#{puppy.age})" %>
+      <%= link_to "View Details", puppy_path(puppy) %>
+    </div>
+  <% end %>
+<% end %>
 
-  This page should:
-  - Welcome visitors to the Puppy Adoption Site
-  - Include a link to the new puppy form
-  - The link should go to the new puppy path and should have the text "Click Here To List A Puppy"
-
-  Hint: Use Rails link_to helper with the new_puppy_path route helper
--->
+<%= link_to "Click Here To List A Puppy", new_puppy_path %>
