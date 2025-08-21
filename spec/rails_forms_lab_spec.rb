@@ -51,7 +51,7 @@ RSpec.describe "Rails Forms Lab", type: :feature do
       fill_in("puppy[name]", with: "Butch")
       fill_in("puppy[breed]", with: "Mastiff")
       fill_in("puppy[age]", with: "6 months")
-      click_button "submit"
+      click_button "commit"
 
       expect(page).to have_text("Puppy Name")
       expect(page).to have_text("Butch")
