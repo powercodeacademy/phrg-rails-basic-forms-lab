@@ -10,3 +10,22 @@
   Hint: Use form_with helper with a model parameter instead of url parameter
   This will automatically set the correct action and method
 -->
+
+<%= form_with model: @puppy, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <br /><br />
+
+  <%= form.label :breed %>
+  <%= form.text_field :breed %>
+
+  <br /><br />
+
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+
+  <br /><br />
+
+  <%= form.submit id: "submit" %>
+<% end %>
