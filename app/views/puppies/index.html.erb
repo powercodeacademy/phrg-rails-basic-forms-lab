@@ -8,3 +8,18 @@
 
   Hint: Use Rails link_to helper with the new_puppy_path route helper
 -->
+<h1>Welcome to the Puppy Adoption Site</h1>
+<p><%= link_to "Click Here To List A Puppy", new_puppy_path %></p>
+<h2>Available Puppies</h2>
+<% if @puppies.present? %>
+  <ul>
+    <% @puppies.each do |puppy| %>
+      <li>
+        <%= puppy.name %> - <%= puppy.breed %> (<%= puppy.age %>)
+        <%= link_to "View Details", puppy_path(puppy) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+<p>No puppies available yet. Be the first to add one!</p>
+<% end %>
