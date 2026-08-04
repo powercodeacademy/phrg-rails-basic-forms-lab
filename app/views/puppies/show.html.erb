@@ -9,3 +9,10 @@
   Use the data passed from your controller action.
   Hint: Access the puppy data through the @puppy instance variable from the controller
 -->
+<h1>Puppy Details</h1>
+
+<p>Puppy Name: <%= @puppy.name %></p>
+<p>Puppy Breed: <%= @puppy.breed %></p>
+<p>Puppy Age: <%= @puppy.age %></p>
+
+<%= link_to "Back to Puppies", puppies_path %>
