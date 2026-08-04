@@ -1,12 +1,15 @@
-<!--
-  TODO: Create your form here!
+<h1> List A Puppy </h1>
 
-  Your form should:
-  - Use Rails form helpers (form_with)
-  - Submit to the puppies_path (POST /puppies)
-  - Have fields for: name, breed, age
-  - Have a submit button with "submit" text and type="submit"
+<%= form_with model: @puppy, local: true do |form| %>
+  <%= form.label :name, "Name" %>
+  <%= form.text_field :name %>
 
-  Hint: Use form_with helper with a model parameter instead of url parameter
-  This will automatically set the correct action and method
--->
+  <%= form.label :breed, "Breed" %>
+  <%= form.text_field :breed %>
+
+  <%= form.label :age, "Age" %>
+  <%= form.text_field :age %>
+
+  <%= form.submit "Create Puppy" %>
+<% end %>  
+
